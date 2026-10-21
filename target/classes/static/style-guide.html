@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EventSaathi design guide</title>
+  <meta name="description" content="A practical preview of EventSaathi's warm, India-first marketplace design system.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css?v=2">
+  <link rel="stylesheet" href="css/components.css?v=2">
+</head>
+<body>
+  <div data-es-navbar></div>
+
+  <header class="sg-hero motif-hero">
+    <div class="es-container sg-hero-content">
+      <p class="sg-eyebrow mb-2">EventSaathi · Design guide</p>
+      <h1 class="mb-3">A little wedding-card warmth.<br>Plenty of room to plan.</h1>
+      <p class="lead mb-0">
+        A considered marketplace for finding the people who make a celebration feel like yours.
+        Shaadi, birthday ya corporate event, sab ek jagah.
+      </p>
+    </div>
+  </header>
+
+  <main class="main-wrapper sg-main">
+    <div class="es-container">
+      <section class="sg-section" id="colours" aria-labelledby="colours-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">01 · Colour</p>
+          <h2 class="h3 mb-2" id="colours-title">Warm, clear, and easy to trust</h2>
+          <p class="mb-0">Maroon carries the important actions; marigold adds a small festive note.</p>
+        </div>
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-primary">#7A1E2C</div>
+            <strong class="d-block">Deep maroon</strong>
+            <span class="text-small">Primary actions</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-accent">#E8A317</div>
+            <strong class="d-block">Marigold</strong>
+            <span class="text-small">A festive accent</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-bg">#FFFAF3</div>
+            <strong class="d-block">Warm ivory</strong>
+            <span class="text-small">Page background</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-surface">#FFFFFF</div>
+            <strong class="d-block">White</strong>
+            <span class="text-small">Cards and forms</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-text">#2B2320</div>
+            <strong class="d-block">Espresso</strong>
+            <span class="text-small">Headings and text</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-secondary">#6B5E57</div>
+            <strong class="d-block">Warm brown</strong>
+            <span class="text-small">Supporting text</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-success">#2E7D32</div>
+            <strong class="d-block">Forest green</strong>
+            <span class="text-small">Confirmed</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-danger">#C62828</div>
+            <strong class="d-block">Muted red</strong>
+            <span class="text-small">Errors and rejections</span>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <div class="sg-swatch sg-swatch-border">#E8DFD8</div>
+            <strong class="d-block">Warm grey</strong>
+            <span class="text-small">Quiet borders</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="type" aria-labelledby="type-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">02 · Type and details</p>
+          <h2 class="h3 mb-2" id="type-title">Editorial where it counts, simple everywhere else</h2>
+          <p class="mb-0">Playfair Display is reserved for the hero and section headings. Inter keeps the rest easy to scan.</p>
+        </div>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="sg-sample-panel">
+              <p class="sg-eyebrow mb-2">Playfair Display · Hero</p>
+              <h1 class="mb-3">Your day, your people, your plan.</h1>
+              <p class="mb-0">Find a good venue, a caterer everyone will remember, and the right team to bring it all together.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <p class="sg-eyebrow mb-2">Inter · Everyday details</p>
+            <h3 class="h5 mb-2">Saffron Table, Pune</h3>
+            <p class="mb-2">Catering · Vegetarian and Jain menus available</p>
+            <p class="inr-currency fs-4 mb-0">Starting from ₹1,25,000</p>
+            <p class="text-small mt-2 mb-0">Indian number grouping · date example: 12 Dec 2026</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="sg-eyebrow mb-2">Celebrations and cities</p>
+          <div class="sg-chip-row" aria-label="Example event types and cities">
+            <span class="es-filter-chip active">Wedding</span>
+            <span class="es-filter-chip">Engagement</span>
+            <span class="es-filter-chip">Haldi</span>
+            <span class="es-filter-chip">Mehendi</span>
+            <span class="es-filter-chip">Sangeet</span>
+            <span class="es-filter-chip">Birthday</span>
+            <span class="es-filter-chip">Anniversary</span>
+            <span class="es-filter-chip">Baby Shower</span>
+            <span class="es-filter-chip">Corporate</span>
+            <span class="es-filter-chip">Housewarming</span>
+            <span class="es-badge es-badge-category">Pune</span>
+            <span class="es-badge es-badge-category">Mumbai</span>
+            <span class="es-badge es-badge-category">Delhi</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="buttons" aria-labelledby="buttons-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">03 · Buttons</p>
+          <h2 class="h3 mb-2" id="buttons-title">Clear actions, comfortable tap targets</h2>
+          <p class="mb-0">Primary actions stand out; secondary actions stay easy to find without competing.</p>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <button class="es-btn es-btn-primary" type="button">Find vendors</button>
+          <button class="es-btn es-btn-secondary" type="button">See details</button>
+          <button class="es-btn es-btn-accent" type="button">Plan my event</button>
+          <a class="es-btn es-btn-whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            Chat on WhatsApp
+          </a>
+          <button class="es-btn es-btn-ghost" type="button">Not now</button>
+          <button class="es-btn es-btn-primary" type="button" disabled>Unavailable</button>
+        </div>
+      </section>
+
+      <section class="sg-section" id="forms" aria-labelledby="forms-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">04 · Forms</p>
+          <h2 class="h3 mb-2" id="forms-title">Helpful prompts, not just red borders</h2>
+          <p class="mb-0">Labels stay visible, Indian phone numbers show their +91 prefix, and errors say what to do next.</p>
+        </div>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="es-form-group">
+                <label class="es-label" for="sample-name">Your name</label>
+                <input class="es-input" id="sample-name" name="name" type="text" placeholder="e.g. Aditi Sharma" autocomplete="name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="es-form-group">
+                <label class="es-label" for="sample-phone">Mobile number</label>
+                <div class="es-input-group">
+                  <span class="es-input-prefix" aria-hidden="true">+91</span>
+                  <input class="es-input is-invalid" id="sample-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" aria-describedby="sample-phone-error" placeholder="98765 43210">
+                </div>
+                <span class="es-field-error" id="sample-phone-error" role="alert">Enter a 10-digit mobile number.</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="es-form-group">
+                <label class="es-label" for="sample-city">City</label>
+                <select class="es-select" id="sample-city" name="city">
+                  <option value="">Choose a city</option>
+                  <option selected value="pune">Pune</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="delhi">Delhi</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="es-form-group">
+                <label class="es-label" for="sample-date">Event date</label>
+                <input class="es-input" id="sample-date" name="date" type="date" value="2026-12-12">
+                <span class="es-field-hint">We’ll show dates as 12 Dec 2026.</span>
+              </div>
+            </div>
+          </div>
+          <button class="es-btn es-btn-primary" type="button">Continue</button>
+        </form>
+      </section>
+
+      <section class="sg-section" id="cards" aria-labelledby="cards-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">05 · Vendor cards</p>
+          <h2 class="h3 mb-2" id="cards-title">Let the work speak for itself</h2>
+          <p class="mb-0">A large photo leads; practical details and the starting price are easy to compare.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <article class="es-card es-card-hover es-vendor-card">
+              <div class="es-vendor-card-media">
+                <span class="es-badge es-badge-category es-vendor-card-badge-top-left">Wedding venue</span>
+                <span class="es-vendor-card-rating"><i class="bi bi-star-fill" aria-hidden="true"></i> 4.9 <span class="text-muted-warm">(128)</span></span>
+                <img class="es-vendor-card-img" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&amp;fit=crop&amp;w=720&amp;q=80" data-fallback-image="assets/images/vendor-placeholder.svg" alt="Warmly lit wedding reception with long dining tables" loading="lazy">
+              </div>
+              <div class="es-card-body">
+                <h3 class="es-vendor-card-title">The Courtyard House</h3>
+                <p class="es-vendor-card-meta"><i class="bi bi-geo-alt" aria-hidden="true"></i> Koregaon Park, Pune</p>
+                <p class="sg-vendor-description">A leafy courtyard, a thoughtful in-house team, and room for the people closest to you.</p>
+                <div class="es-vendor-card-price">
+                  <div>
+                    <span class="es-vendor-card-price-label">Starting from</span>
+                    <div class="es-vendor-card-price-val">₹1,25,000</div>
+                  </div>
+                  <a class="es-btn es-btn-secondary es-btn-sm" href="#buttons">View venue</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="es-card es-card-hover es-vendor-card">
+              <div class="es-vendor-card-media">
+                <span class="es-badge es-badge-category es-vendor-card-badge-top-left">Catering</span>
+                <span class="es-vendor-card-rating"><i class="bi bi-star-fill" aria-hidden="true"></i> 4.8 <span class="text-muted-warm">(94)</span></span>
+                <img class="es-vendor-card-img" src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&amp;fit=crop&amp;w=720&amp;q=80" data-fallback-image="assets/images/vendor-placeholder.svg" alt="A beautifully arranged Indian buffet ready for guests" loading="lazy">
+              </div>
+              <div class="es-card-body">
+                <h3 class="es-vendor-card-title">Saffron Table</h3>
+                <p class="es-vendor-card-meta"><i class="bi bi-geo-alt" aria-hidden="true"></i> Pune · Jain menus available</p>
+                <p class="sg-vendor-description">Seasonal menus, generous portions, and a team that keeps service moving smoothly.</p>
+                <div class="es-vendor-card-price">
+                  <div>
+                    <span class="es-vendor-card-price-label">Starting from</span>
+                    <div class="es-vendor-card-price-val">₹850 <span class="text-small">/ plate</span></div>
+                  </div>
+                  <a class="es-btn es-btn-secondary es-btn-sm" href="#buttons">View caterer</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="es-card es-vendor-card" aria-label="Example vendor card loading">
+              <div class="es-skeleton es-skeleton-media" aria-hidden="true"></div>
+              <div class="es-card-body" aria-hidden="true">
+                <div class="es-skeleton es-skeleton-title"></div>
+                <div class="es-skeleton es-skeleton-text sg-skeleton-half"></div>
+                <div class="es-skeleton es-skeleton-text"></div>
+                <div class="es-skeleton es-skeleton-text sg-skeleton-short"></div>
+                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                  <span class="es-skeleton es-skeleton-btn sg-skeleton-narrow"></span>
+                  <span class="es-skeleton sg-skeleton-button"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="statuses" aria-labelledby="statuses-title">
+        <div class="sg-section-header">
+          <p class="sg-eyebrow mb-2">06 · Status and feedback</p>
+          <h2 class="h3 mb-2" id="statuses-title">The next step should never be a mystery</h2>
+          <p class="mb-0">Status names stay readable without relying on colour alone.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="sg-sample-panel">
+              <p class="sg-sample-label mb-3">Booking status</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="es-badge es-badge-pending">Pending</span>
+                <span class="es-badge es-badge-confirmed">Confirmed</span>
+                <span class="es-badge es-badge-rejected">Rejected</span>
+                <span class="es-badge es-badge-completed">Completed</span>
+                <span class="es-badge es-badge-cancelled">Cancelled</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="sg-toast-stack" aria-label="Example notifications" aria-live="polite">
+              <div class="es-toast es-toast-success" role="status">
+                <i class="bi bi-check-circle es-toast-icon" aria-hidden="true"></i>
+                <div class="es-toast-content">
+                  <div class="es-toast-title">Request sent</div>
+                  <div class="es-toast-message">The vendor will get back to you about your date.</div>
+                </div>
+              </div>
+              <div class="es-toast es-toast-error" role="alert">
+                <i class="bi bi-exclamation-circle es-toast-icon" aria-hidden="true"></i>
+                <div class="es-toast-content">
+                  <div class="es-toast-title">Couldn’t save your changes</div>
+                  <div class="es-toast-message">Please try again in a moment.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-es-footer></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

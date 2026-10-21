@@ -1,0 +1,135 @@
+/**
+ * EventSaathi - Design System Variables
+ * Theme: "Wedding card meets clean marketplace"
+ * Indian festive warmth, modern clarity, accessible contrast
+ */
+
+:root {
+  /* ==========================================================================
+     Color Palette (Strict Brand Tokens)
+     ========================================================================== */
+  /* Primary - Deep Royal Maroon */
+  --color-primary: #7A1E2C;
+  --color-primary-hover: #631622;
+  --color-primary-active: #50101A;
+  --color-primary-subtle: #FDF5F6;
+  --color-primary-tint: #F7E4E7;
+
+  /* Accent - Saffron / Golden Marigold */
+  --color-accent: #E8A317;
+  --color-accent-hover: #CF8E0E;
+  --color-accent-active: #B57B0A;
+  --color-accent-subtle: #FFF9ED;
+  --color-accent-tint: #FDEBC3;
+
+  /* Backgrounds & Surfaces */
+  --color-bg: #FFFAF3;               /* Warm Ivory page background */
+  --color-surface: #FFFFFF;          /* Pure White cards & modal surfaces */
+  --color-surface-subtle: #F9F3EA;   /* Light warm cream container */
+  --color-surface-elevated: #FFFFFF; /* Dropdowns & elevated overlays */
+
+  /* Text & Content */
+  --color-text-primary: #2B2320;     /* Deep Espresso for primary headings/text */
+  --color-text-secondary: #6B5E57;   /* Warm Slate for body & subtext */
+  --color-text-muted: #9C8E86;       /* Subtle meta info & placeholders */
+  --color-text-inverse: #FFFFFF;     /* White on dark backgrounds */
+  --color-text-on-accent: #2B2320;   /* Readable dark on saffron */
+
+  /* Borders & Dividers */
+  --color-border: #E8DFD8;          /* Thin warm-grey border */
+  --color-border-subtle: #F2ECE5;   /* Very soft divider */
+  --color-border-hover: #D4C6BC;    /* Input hover */
+  --color-border-focus: #7A1E2C;    /* Input focus */
+
+  /* Semantic Feedback (Slightly Muted, Warm-compatible) */
+  --color-success: #2E7D32;         /* Muted forest green */
+  --color-success-bg: #F1F8F2;
+  --color-success-border: #C8E6C9;
+
+  --color-danger: #C62828;          /* Muted crimson red */
+  --color-danger-bg: #FDF2F2;
+  --color-danger-border: #FFCDD2;
+
+  --color-warning: #D97706;         /* Warm amber */
+  --color-warning-bg: #FFFBEB;
+  --color-warning-border: #FDE68A;
+
+  --color-info: #0284C7;            /* Muted royal blue */
+  --color-info-bg: #F0F9FF;
+  --color-info-border: #BAE6FD;
+
+  /* Specialized Actions */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA5A;
+  --color-whatsapp-subtle: #E8FBF0;
+
+  /* ==========================================================================
+     Typography
+     ========================================================================== */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ==========================================================================
+     Shape, Radius & Shadows
+     ========================================================================== */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows (Soft, Low-opacity, Warm Tones) */
+  --shadow-subtle: 0 1px 3px rgba(43, 35, 32, 0.05), 0 1px 2px rgba(43, 35, 32, 0.03);
+  --shadow-sm: 0 2px 6px rgba(43, 35, 32, 0.06), 0 1px 2px rgba(43, 35, 32, 0.04);
+  --shadow-md: 0 6px 16px rgba(43, 35, 32, 0.07), 0 2px 4px rgba(43, 35, 32, 0.04);
+  --shadow-lg: 0 12px 28px rgba(43, 35, 32, 0.09), 0 4px 8px rgba(43, 35, 32, 0.04);
+  --shadow-hover: 0 10px 24px rgba(122, 30, 44, 0.10), 0 3px 6px rgba(43, 35, 32, 0.05);
+
+  /* ==========================================================================
+     Transitions & Motion
+     ========================================================================== */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 250ms ease-in-out;
+
+  /* Spacing Tokens */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* Touch Target Minimum (Accessibility for Mobile) */
+  --touch-target-min: 44px;
+
+  /* Layout Containers */
+  --container-max: 1200px;
+}

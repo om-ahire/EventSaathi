@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get to know this local event vendor, browse their packages and reviews, and send a booking request for your celebration.">
+  <meta name="theme-color" content="#FFFAF3">
+  <title>Vendor details | EventSaathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/variables.css?v=4">
+  <link rel="stylesheet" href="../css/base.css?v=4">
+  <link rel="stylesheet" href="../css/components.css?v=4">
+  <link rel="stylesheet" href="../css/pages.css?v=4">
+  <link rel="stylesheet" href="../css/responsive.css?v=4">
+  <script type="module" src="../js/pages/vendorDetail.js"></script>
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body>
+  <div data-es-navbar></div>
+
+  <main class="vendor-detail-page">
+    <div class="es-container">
+      <nav class="vendor-detail-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        <a href="vendors.html">Find vendors</a>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        <span id="vendor-breadcrumb-name">Vendor details</span>
+      </nav>
+
+      <section class="vendor-detail-loading" id="vendor-detail-loading" aria-live="polite">
+        <div class="es-skeleton vendor-detail-loading-photo"></div>
+        <div class="es-skeleton vendor-detail-loading-line"></div>
+        <div class="es-skeleton vendor-detail-loading-line vendor-detail-loading-line-short"></div>
+      </section>
+
+      <section class="vendor-detail-error" id="vendor-detail-error" role="alert" hidden>
+        <span class="vendor-detail-error-icon" aria-hidden="true"><i class="bi bi-exclamation-circle"></i></span>
+        <h1>We couldn’t find this vendor.</h1>
+        <p>The profile may have moved, or it may no longer be available.</p>
+        <a class="es-btn es-btn-secondary" href="vendors.html">Back to vendors</a>
+      </section>
+
+      <div id="vendor-detail-content" hidden>
+        <section class="vendor-detail-hero" aria-labelledby="vendor-name">
+          <div class="vendor-detail-photo-wrap">
+            <img class="vendor-detail-photo" id="vendor-image" data-fallback-image="../assets/images/vendor-placeholder.svg" alt="" fetchpriority="high">
+            <span class="vendor-detail-photo-label"><i class="bi bi-camera" aria-hidden="true"></i> A look at their work</span>
+          </div>
+          <div class="vendor-detail-intro">
+            <div class="vendor-detail-kicker" id="vendor-category"></div>
+            <h1 id="vendor-name"></h1>
+            <p class="vendor-detail-location" id="vendor-location"></p>
+            <div class="vendor-detail-rating" id="vendor-rating"></div>
+            <p class="vendor-detail-lead" id="vendor-short-description"></p>
+            <div class="vendor-detail-hero-actions">
+              <a class="es-btn es-btn-secondary" id="vendor-whatsapp" target="_blank" rel="noopener noreferrer" hidden>
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
+              </a>
+              <a class="vendor-detail-contact-link" id="vendor-contact-link" hidden></a>
+            </div>
+          </div>
+        </section>
+
+        <div class="vendor-detail-layout">
+          <div class="vendor-detail-main">
+            <section class="vendor-detail-section" aria-labelledby="vendor-about-title">
+              <p class="home-eyebrow">A LITTLE ABOUT THEM</p>
+              <h2 id="vendor-about-title">Good work starts with a good conversation.</h2>
+              <p id="vendor-description" class="vendor-detail-description"></p>
+              <div class="vendor-detail-address" id="vendor-address" hidden>
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <span></span>
+              </div>
+            </section>
+
+            <section class="vendor-detail-section vendor-packages" aria-labelledby="vendor-packages-title">
+              <div class="vendor-section-heading">
+                <div>
+                  <p class="home-eyebrow">SERVICES &amp; PRICING</p>
+                  <h2 id="vendor-packages-title">Find a package that fits.</h2>
+                </div>
+                <p class="vendor-section-note">Prices are shared by the vendor.</p>
+              </div>
+              <div class="vendor-package-list" id="vendor-package-list"></div>
+            </section>
+
+            <section class="vendor-detail-section vendor-reviews" aria-labelledby="vendor-reviews-title">
+              <div class="vendor-section-heading">
+                <div>
+                  <p class="home-eyebrow">NOTES FROM THE DAY</p>
+                  <h2 id="vendor-reviews-title">What customers say.</h2>
+                </div>
+                <span class="vendor-review-summary" id="vendor-review-summary"></span>
+              </div>
+              <div class="vendor-review-list" id="vendor-review-list" aria-live="polite">
+                <p class="vendor-section-note">Loading customer reviews…</p>
+              </div>
+            </section>
+          </div>
+
+          <aside class="vendor-booking-column" aria-label="Send a booking request">
+            <div class="vendor-booking-card">
+              <p class="home-eyebrow">LET’S TALK DATES</p>
+              <h2>Make this part of your day.</h2>
+              <p class="vendor-booking-price-label">Starting from</p>
+              <p class="vendor-booking-price" id="vendor-starting-price"></p>
+              <label class="es-label" for="vendor-date-picker">Your event date</label>
+              <input class="es-input" id="vendor-date-picker" type="date">
+              <p class="vendor-date-note" id="vendor-date-note">Choose a date to enquire. The vendor will confirm availability after you send a request.</p>
+              <button class="es-btn es-btn-primary vendor-booking-button" id="vendor-book-now" type="button">
+                Book now <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="vendor-booking-reassurance"><i class="bi bi-chat-heart" aria-hidden="true"></i> A request is not a confirmed booking. The vendor will respond to you.</p>
+            </div>
+            <p class="vendor-booking-help">Not sure yet? Start with a quick conversation on WhatsApp.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="vendor-mobile-booking-bar" id="vendor-mobile-booking-bar" hidden>
+    <div>
+      <span>Starting from</span>
+      <strong id="vendor-mobile-price"></strong>
+    </div>
+    <button class="es-btn es-btn-primary" type="button" data-vendor-book-trigger>Book now</button>
+  </div>
+
+  <dialog class="vendor-booking-dialog" id="vendor-booking-dialog" aria-labelledby="booking-dialog-title">
+    <div class="vendor-dialog-header">
+      <div>
+        <p class="home-eyebrow">A GOOD NEXT STEP</p>
+        <h2 id="booking-dialog-title">Send a booking request</h2>
+      </div>
+      <button class="vendor-dialog-close" type="button" data-dialog-close aria-label="Close booking form">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+    <form id="vendor-booking-form" novalidate>
+      <p class="vendor-dialog-vendor-name" id="booking-vendor-name"></p>
+      <div class="es-form-group">
+        <label class="es-label" for="booking-event">Add this vendor to an event</label>
+        <select class="es-select" name="eventChoice" id="booking-event">
+          <option value="new">Create a new event</option>
+        </select>
+        <small class="es-field-hint" id="booking-event-date-hint"></small>
+      </div>
+
+      <div id="booking-new-event-fields">
+        <div class="es-form-group">
+          <label class="es-label" for="booking-event-name">Event name</label>
+          <input class="es-input" id="booking-event-name" name="name" maxlength="200" required>
+          <div class="es-field-error" data-error-for="name" hidden></div>
+        </div>
+        <div class="vendor-booking-form-grid">
+          <div class="es-form-group">
+            <label class="es-label" for="booking-event-type">Occasion</label>
+            <select class="es-select" id="booking-event-type" name="eventTypeId">
+              <option value="">Choose an occasion</option>
+            </select>
+            <div class="es-field-error" data-error-for="eventTypeId" hidden></div>
+          </div>
+          <div class="es-form-group">
+            <label class="es-label" for="booking-city">City</label>
+            <select class="es-select" id="booking-city" name="cityId">
+              <option value="">Choose a city</option>
+            </select>
+            <div class="es-field-error" data-error-for="cityId" hidden></div>
+          </div>
+        </div>
+        <div class="vendor-booking-form-grid">
+          <div class="es-form-group">
+            <label class="es-label" for="booking-guests">Guest count</label>
+            <input class="es-input" id="booking-guests" name="guestCount" type="number" min="1" step="1" inputmode="numeric" placeholder="Optional">
+            <div class="es-field-error" data-error-for="guestCount" hidden></div>
+          </div>
+          <div class="es-form-group">
+            <label class="es-label" for="booking-budget">Event budget</label>
+            <div class="es-input-group">
+              <span class="es-input-prefix" aria-hidden="true">₹</span>
+              <input class="es-input" id="booking-budget" name="totalBudget" type="number" min="0" step="1000" inputmode="numeric" placeholder="Optional">
+            </div>
+            <div class="es-field-error" data-error-for="totalBudget" hidden></div>
+          </div>
+        </div>
+        <div class="es-form-group">
+          <label class="es-label" for="booking-event-description">A note about your event <span class="vendor-optional-label">(optional)</span></label>
+          <textarea class="es-input" id="booking-event-description" name="description" rows="2" maxlength="4000" placeholder="Anything that would help with the planning?"></textarea>
+        </div>
+      </div>
+
+      <div class="es-form-group">
+        <label class="es-label" for="booking-package">Choose a service</label>
+        <select class="es-select" id="booking-package" name="vendorServiceId"></select>
+        <small class="es-field-hint" id="booking-package-price"></small>
+      </div>
+      <div class="es-form-group">
+        <label class="es-label" for="booking-notes">Message for the vendor <span class="vendor-optional-label">(optional)</span></label>
+        <textarea class="es-input" id="booking-notes" name="notes" rows="3" maxlength="2000" placeholder="Share what matters most to you."></textarea>
+        <div class="es-field-error" data-error-for="notes" hidden></div>
+      </div>
+      <div class="vendor-booking-submit-row">
+        <p>Event date: <strong id="booking-selected-date"></strong></p>
+        <button class="es-btn es-btn-primary" id="booking-submit" type="submit">Send request</button>
+      </div>
+      <p class="vendor-booking-form-error" id="booking-form-error" role="alert" hidden></p>
+    </form>
+    <section class="vendor-booking-success" id="booking-success" aria-live="polite" hidden>
+      <span class="vendor-booking-success-icon" aria-hidden="true"><i class="bi bi-check2"></i></span>
+      <h3>Your request is on its way.</h3>
+      <p>The vendor will review the details and get back to you. You can follow the request from your bookings.</p>
+      <a class="es-btn es-btn-primary" href="my-bookings.html">View my bookings</a>
+    </section>
+  </dialog>
+
+  <div data-es-footer></div>
+</body>
+</html>

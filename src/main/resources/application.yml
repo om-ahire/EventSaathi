@@ -1,0 +1,107 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# EventSaathi – application.yml
+# Rule: All secrets come from environment variables so this file is safe to
+#       commit to version control. Never hardcode passwords or keys here.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+spring:
+
+  # ── Application name (shows up in logs / Actuator) ─────────────────────────
+  application:
+    name: EventSaathi
+
+  # ── DataSource (MySQL 8) ────────────────────────────────────────────────────
+  datasource:
+    # serverTimezone=UTC  → avoids the classic "The server time zone value..." error
+    # allowPublicKeyRetrieval=true + useSSL=false → fixes auth plugin issues in dev
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:eventsaathi_db}?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=UTF-8
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}          # set via env-var in prod; default to root for local development
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # HikariCP – Spring Boot 3 uses this by default
+    hikari:
+      pool-name: EventSaathiPool
+      maximum-pool-size: 10            # good default for a single-instance app
+      minimum-idle: 2
+      connection-timeout: 20000        # 20 s – fail fast if DB is unreachable
+      idle-timeout: 300000             # 5 min
+      max-lifetime: 1200000            # 20 min (less than MySQL's wait_timeout)
+      connection-test-query: SELECT 1  # lightweight connectivity probe
+
+  # ── JPA / Hibernate ─────────────────────────────────────────────────────────
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      # validate  → safest for prod (schema must match entities)
+      # update    → convenient during dev (Hibernate alters tables automatically)
+      # create    → drops and recreates on every start (use only for fresh runs)
+      ddl-auto: update
+    show-sql: false                    # set true locally to debug queries
+    open-in-view: false                # disables the anti-pattern OSIV
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        default_batch_fetch_size: 25  # reduces N+1 for collections
+
+  # ── Static resources (Frontend HTML/CSS/JS live in src/main/resources/static) ─
+  web:
+    resources:
+      static-locations: classpath:/static/
+      cache:
+        period: 3600                   # 1-hour cache for static assets
+
+  # ── SQL initialization ──────────────────────────────────────────────────────
+  sql:
+    init:
+      mode: never                      # DataInitializer.java handles seeding in Java (handles BCrypt)
+
+# ── Server ───────────────────────────────────────────────────────────────────
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /                    # keep root so static index.html is served at /
+  error:
+    # Disable Whitelabel error page – our @RestControllerAdvice handles errors
+    whitelabel:
+      enabled: false
+    include-message: always
+    include-binding-errors: always
+
+# ── JWT ──────────────────────────────────────────────────────────────────────
+app:
+  jwt:
+    # IMPORTANT: override JWT_SECRET in production with a 256-bit (32-char+) random string
+    secret: ${JWT_SECRET:change-me-in-production-use-a-long-random-string-here}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}   # 24 hours
+
+  # ── AI / LLM Integration ─────────────────────────────────────────────────
+  ai:
+    api-url: ${AI_API_URL:https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent}
+    api-key: ${AI_API_KEY:your-api-key-here}
+    timeout-seconds: 10
+    enabled: ${AI_ENABLED:false}       # opt in by providing a valid AI_API_KEY
+
+  # ── Seeding ──────────────────────────────────────────────────────────────
+  seed:
+    admin-email: ${ADMIN_EMAIL:admin@eventsaathi.com}
+    admin-password: ${ADMIN_PASSWORD:Admin@123456}
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+logging:
+  level:
+    com.eventsaathi: DEBUG             # verbose for our own code
+    org.springframework.security: INFO
+    org.hibernate.SQL: INFO
+    org.hibernate.type.descriptor.sql: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# ── SpringDoc / Swagger UI ────────────────────────────────────────────────────
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method

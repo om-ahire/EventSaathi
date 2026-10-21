@@ -1,0 +1,287 @@
+/**
+ * EventSaathi - Base Stylesheet
+ * Typography, CSS reset refinements, motif backgrounds, and accessible utility classes.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+@import url('./variables.css');
+
+/* ==========================================================================
+   Document & Reset Refinements
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Accessible focus ring across all keyboard interactions */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-primary-tint);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Typography Hierarchy
+   Headings: Playfair Display (editorial, celebratory, trustworthy)
+   Body: Inter (sharp, modern, legible at all sizes)
+   ========================================================================== */
+h1, h2, .font-heading {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.015em;
+}
+
+h1, .h1 {
+  font-size: clamp(2rem, 4vw + 1rem, var(--text-5xl));
+  font-weight: var(--weight-bold);
+  line-height: 1.15;
+}
+
+h2, .h2 {
+  font-size: clamp(1.65rem, 2.5vw + 1rem, var(--text-4xl));
+}
+
+h3, .h3 {
+  font-size: clamp(1.35rem, 1.8vw + 0.8rem, var(--text-3xl));
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+h4, .h4 {
+  font-size: var(--text-2xl);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+h5, .h5 {
+  font-size: var(--text-xl);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+h6, .h6 {
+  font-size: var(--text-lg);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+p.lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-regular);
+}
+
+small, .text-small {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+strong, b {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Motifs & Decorative Indian Festive Accents
+   (Subtle, restrained, used in Hero & Footer only)
+   ========================================================================== */
+.motif-bg {
+  background-image: url('../assets/patterns/mandala-motif.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 260px 260px;
+  opacity: 1;
+}
+
+.motif-hero {
+  position: relative;
+  background-color: var(--color-bg);
+}
+
+.motif-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('../assets/patterns/mandala-motif.svg');
+  background-position: right -40px top -40px;
+  background-repeat: no-repeat;
+  background-size: 320px 320px;
+  pointer-events: none;
+  opacity: 0.16;
+}
+
+/* Traditional Elegant Hairline Divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: var(--space-8) 0;
+  color: var(--color-text-muted);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ornament-divider-icon {
+  padding: 0 var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.ornament-divider-icon span {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-accent);
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.ornament-divider-icon span:nth-child(2) {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   General Utilities & Layout Helpers
+   ========================================================================== */
+.main-wrapper {
+  flex: 1 0 auto;
+}
+
+.es-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .es-container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* Brand Colors */
+.text-maroon { color: var(--color-primary) !important; }
+.text-saffron { color: var(--color-accent) !important; }
+.text-slate { color: var(--color-text-secondary) !important; }
+.text-muted-warm { color: var(--color-text-muted) !important; }
+
+.bg-maroon { background-color: var(--color-primary) !important; color: var(--color-text-inverse) !important; }
+.bg-saffron { background-color: var(--color-accent) !important; color: var(--color-text-on-accent) !important; }
+.bg-ivory { background-color: var(--color-bg) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+.bg-cream { background-color: var(--color-surface-subtle) !important; }
+
+/* Indian Currency Font Weight & Alignment */
+.inr-currency {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+}
+
+/* Touch Targets on Mobile (Strict min 44px) */
+.touch-target {
+  min-height: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

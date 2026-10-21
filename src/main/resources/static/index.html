@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find thoughtful venues, caterers, photographers and event teams for your celebration in India. Compare local vendors and start planning with EventSaathi.">
+  <meta name="theme-color" content="#FFFAF3">
+  <title>Plan a day worth remembering | EventSaathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/variables.css?v=3">
+  <link rel="stylesheet" href="css/base.css?v=3">
+  <link rel="stylesheet" href="css/components.css?v=3">
+  <link rel="stylesheet" href="css/pages.css?v=3">
+  <link rel="stylesheet" href="css/responsive.css?v=3">
+  <script type="module" src="js/pages/home.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div data-es-navbar></div>
+
+  <main>
+    <section class="home-hero motif-hero">
+      <div class="es-container home-hero-layout">
+        <div class="home-hero-copy">
+          <p class="home-eyebrow"><span class="home-eyebrow-rule" aria-hidden="true"></span> MADE FOR THE DAYS THAT BRING EVERYONE TOGETHER</p>
+          <h1>A little less searching.<br>A lot more <em>celebrating.</em></h1>
+          <p class="home-hero-description">From the first guest list to the last song, find local people who know how to make a day feel like yours.</p>
+          <p class="home-hinglish">Shaadi, birthday ya corporate event, sab ek jagah.</p>
+
+          <form class="home-search-panel" id="home-search-form" action="pages/vendors.html" method="get">
+            <div class="home-search-field">
+              <label for="home-city">City</label>
+              <div class="home-input-with-icon">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <select class="es-select" id="home-city" name="cityId">
+                  <option value="">Choose a city</option>
+                </select>
+              </div>
+            </div>
+            <div class="home-search-divider" aria-hidden="true"></div>
+            <div class="home-search-field">
+              <label for="home-event">What are you planning?</label>
+              <div class="home-input-with-icon">
+                <i class="bi bi-calendar-heart" aria-hidden="true"></i>
+                <select class="es-select" id="home-event" name="eventTypeId">
+                  <option value="">Any celebration</option>
+                </select>
+              </div>
+            </div>
+            <div class="home-search-divider" aria-hidden="true"></div>
+            <div class="home-search-field home-budget-field">
+              <label for="home-budget">Vendor budget</label>
+              <div class="home-input-with-icon">
+                <i class="bi bi-currency-rupee" aria-hidden="true"></i>
+                <input class="es-input" id="home-budget" name="maxPrice" type="number" min="0" step="5000" inputmode="numeric" placeholder="Any budget">
+              </div>
+            </div>
+            <button class="es-btn es-btn-primary home-search-submit" type="submit">
+              <span>Find vendors</span>
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="home-search-note"><i class="bi bi-check2-circle" aria-hidden="true"></i> Browse verified local businesses. Talk to vendors directly.</p>
+        </div>
+
+        <div class="home-hero-photo" aria-label="A warmly lit wedding celebration">
+          <img class="home-hero-image"
+               src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+               data-fallback-image="assets/images/vendor-placeholder.svg"
+               alt="An intimate Indian wedding celebration filled with flowers and warm lights">
+          <div class="home-photo-caption">
+            <span class="home-caption-mark" aria-hidden="true"><i class="bi bi-flower1"></i></span>
+            <span><strong>The big day, made yours.</strong><small>Good people for every kind of gathering.</small></span>
+          </div>
+          <span class="home-photo-annotation"><i class="bi bi-geo-alt" aria-hidden="true"></i> Wherever your people are</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-category-section" aria-labelledby="category-title">
+      <div class="es-container">
+        <div class="home-section-heading home-section-heading-split">
+          <div>
+            <p class="home-eyebrow">A GOOD PLACE TO BEGIN</p>
+            <h2 id="category-title">What are you looking for?</h2>
+            <p>Pick one piece of the plan. We’ll help you find the right people for it.</p>
+          </div>
+          <a class="home-text-link" href="pages/vendors.html">See all vendors <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="home-category-list" id="home-categories" aria-live="polite">
+          <div class="home-category-loading" aria-label="Loading event categories">
+            <span class="es-skeleton"></span><span class="es-skeleton"></span><span class="es-skeleton"></span><span class="es-skeleton"></span>
+          </div>
+        </div>
+        <p class="home-inline-message" id="home-categories-message" role="status" hidden></p>
+      </div>
+    </section>
+
+    <section class="home-how-section" aria-labelledby="how-title">
+      <div class="es-container home-how-layout">
+        <div class="home-how-intro">
+          <p class="home-eyebrow">ONE SMALL STEP AT A TIME</p>
+          <h2 id="how-title">The fun part starts sooner.</h2>
+          <p>No giant spreadsheet to start with. Just your occasion, your city and a first shortlist.</p>
+          <a class="es-btn es-btn-secondary" href="pages/plan-event.html">Get help planning <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <ol class="home-how-steps">
+          <li>
+            <span class="home-step-number">01</span>
+            <div><h3>Tell us the shape of your day</h3><p>Choose a city, an occasion and the kind of help you need.</p></div>
+          </li>
+          <li>
+            <span class="home-step-number">02</span>
+            <div><h3>Meet your shortlist</h3><p>Compare real photos, starting prices and details from local vendors.</p></div>
+          </li>
+          <li>
+            <span class="home-step-number">03</span>
+            <div><h3>Make it yours</h3><p>Ask a question, save a date and plan the next bit together.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="home-featured-section" aria-labelledby="featured-title">
+      <div class="es-container">
+        <div class="home-section-heading home-section-heading-split">
+          <div>
+            <p class="home-eyebrow">A FEW GOOD FINDS</p>
+            <h2 id="featured-title">Meet the people behind the plans.</h2>
+            <p>Local teams, thoughtful work and room to make the details your own.</p>
+          </div>
+          <a class="home-text-link" href="pages/vendors.html">Browse the marketplace <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="row g-4" id="home-featured-vendors" aria-live="polite">
+          <div class="col-md-6 col-lg-4"><div class="es-card"><div class="es-skeleton es-skeleton-media"></div><div class="es-card-body"><div class="es-skeleton es-skeleton-title"></div><div class="es-skeleton es-skeleton-text"></div><div class="es-skeleton es-skeleton-text"></div></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="es-card"><div class="es-skeleton es-skeleton-media"></div><div class="es-card-body"><div class="es-skeleton es-skeleton-title"></div><div class="es-skeleton es-skeleton-text"></div><div class="es-skeleton es-skeleton-text"></div></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="es-card"><div class="es-skeleton es-skeleton-media"></div><div class="es-card-body"><div class="es-skeleton es-skeleton-title"></div><div class="es-skeleton es-skeleton-text"></div><div class="es-skeleton es-skeleton-text"></div></div></div></div>
+        </div>
+        <p class="home-inline-message" id="home-featured-message" role="status" hidden></p>
+      </div>
+    </section>
+
+    <section class="home-trust-section" aria-label="A marketplace you can plan with">
+      <div class="es-container home-trust-list">
+        <div class="home-trust-item"><i class="bi bi-geo-alt" aria-hidden="true"></i><span><strong>Closer to home</strong><small>Browse by city and find local teams.</small></span></div>
+        <div class="home-trust-item"><i class="bi bi-card-image" aria-hidden="true"></i><span><strong>See the real work</strong><small>Photos and package details at a glance.</small></span></div>
+        <div class="home-trust-item"><i class="bi bi-chat-heart" aria-hidden="true"></i><span><strong>Make the first ask</strong><small>Reach out directly about your date.</small></span></div>
+      </div>
+    </section>
+
+    <section class="home-vendor-cta">
+      <div class="es-container">
+        <div class="home-vendor-cta-panel">
+          <div>
+            <p class="home-eyebrow">FOR THE PEOPLE WHO MAKE IT HAPPEN</p>
+            <h2>Are you a vendor?</h2>
+            <p>Put your work in front of people planning their next celebration.</p>
+          </div>
+          <a class="es-btn es-btn-primary" href="pages/register.html">List your services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-es-footer></div>
+</body>
+</html>

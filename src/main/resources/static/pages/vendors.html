@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse local event vendors by city, category and budget. Compare real profiles and find a good fit for your celebration.">
+  <meta name="theme-color" content="#FFFAF3">
+  <title>Find event vendors | EventSaathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/variables.css?v=3">
+  <link rel="stylesheet" href="../css/base.css?v=3">
+  <link rel="stylesheet" href="../css/components.css?v=3">
+  <link rel="stylesheet" href="../css/pages.css?v=3">
+  <link rel="stylesheet" href="../css/responsive.css?v=3">
+  <script type="module" src="../js/pages/vendors.js"></script>
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body>
+  <div data-es-navbar></div>
+
+  <main class="vendors-page">
+    <header class="vendors-header">
+      <div class="es-container">
+        <p class="home-eyebrow">YOUR DAY, YOUR SHORTLIST</p>
+        <h1>Find the people who make it happen.</h1>
+        <p>Take your time, compare the details, and find a team that feels right.</p>
+        <div class="vendors-context" id="vendors-event-context" hidden>
+          <i class="bi bi-calendar-heart" aria-hidden="true"></i>
+          <span></span>
+          <small>Explore venues and event teams to help bring your plans together.</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="vendors-results-section es-container" aria-label="Event vendor search results">
+      <div class="vendors-mobile-toolbar">
+        <button class="es-btn es-btn-secondary" id="vendors-open-filters" type="button" aria-controls="vendors-filters" aria-expanded="false">
+          <i class="bi bi-sliders" aria-hidden="true"></i> Filters <span id="vendors-filter-count" class="vendors-filter-count" hidden></span>
+        </button>
+        <label class="vendors-mobile-sort">
+          <span class="visually-hidden">Sort vendors</span>
+          <select class="es-select" id="vendors-sort-mobile">
+            <option value="rating:desc">Top rated</option>
+            <option value="price:asc">Price: low to high</option>
+            <option value="price:desc">Price: high to low</option>
+            <option value="name:asc">Name: A to Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="vendors-layout">
+        <aside class="vendors-filter-drawer" id="vendors-filters" aria-label="Filter vendors" aria-hidden="false">
+          <div class="vendors-filter-header">
+            <h2>Make it a little more you</h2>
+            <button class="vendors-filter-close" id="vendors-close-filters" type="button" aria-label="Close filters">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <form id="vendors-filter-form">
+            <div class="vendors-filter-group">
+              <label class="es-label" for="filter-query">Search</label>
+              <input class="es-input" id="filter-query" name="q" type="search" placeholder="Try “photography”">
+            </div>
+            <div class="vendors-filter-group">
+              <label class="es-label" for="filter-category">Category</label>
+              <select class="es-select" id="filter-category" name="categoryId">
+                <option value="">All categories</option>
+              </select>
+            </div>
+            <div class="vendors-filter-group">
+              <label class="es-label" for="filter-city">City</label>
+              <select class="es-select" id="filter-city" name="cityId">
+                <option value="">All cities</option>
+              </select>
+            </div>
+            <div class="vendors-filter-group">
+              <label class="es-label" for="filter-budget">Maximum starting price</label>
+              <div class="es-input-group">
+                <span class="es-input-prefix" aria-hidden="true">₹</span>
+                <input class="es-input" id="filter-budget" name="maxPrice" type="number" min="0" step="5000" inputmode="numeric" placeholder="Any budget">
+              </div>
+            </div>
+            <div class="vendors-filter-group">
+              <label class="es-label" for="filter-rating">Minimum rating</label>
+              <select class="es-select" id="filter-rating" name="minRating">
+                <option value="">Any rating</option>
+                <option value="4">4 stars &amp; up</option>
+                <option value="4.5">4.5 stars &amp; up</option>
+              </select>
+            </div>
+            <div class="vendors-filter-actions">
+              <button class="es-btn es-btn-ghost" type="reset">Clear filters</button>
+              <button class="es-btn es-btn-primary vendors-mobile-apply" type="button" id="vendors-apply-filters">Show vendors</button>
+            </div>
+          </form>
+        </aside>
+
+        <div class="vendors-results">
+          <div class="vendors-results-toolbar">
+            <div>
+              <h2 class="vendors-results-title">Worth a closer look</h2>
+              <p class="vendors-results-count" id="vendors-result-count" aria-live="polite">Finding local vendors…</p>
+            </div>
+            <label class="vendors-desktop-sort">
+              <span>Sort by</span>
+              <select class="es-select" id="vendors-sort">
+                <option value="rating:desc">Top rated</option>
+                <option value="price:asc">Price: low to high</option>
+                <option value="price:desc">Price: high to low</option>
+                <option value="name:asc">Name: A to Z</option>
+              </select>
+            </label>
+          </div>
+          <div class="vendors-active-filters" id="vendors-active-filters" aria-label="Active filters"></div>
+          <div class="row g-4" id="vendors-grid" aria-live="polite" aria-busy="true"></div>
+          <div class="vendors-empty-state" id="vendors-empty" hidden>
+            <span class="vendors-empty-icon" aria-hidden="true"><i class="bi bi-search-heart"></i></span>
+            <h2>A little quiet around here.</h2>
+            <p>No approved vendors match these filters just yet. Try another city or widen your budget.</p>
+            <button class="es-btn es-btn-secondary" type="button" id="vendors-empty-reset">Clear filters</button>
+          </div>
+          <div class="vendors-error-state" id="vendors-error" role="alert" hidden>
+            <h2>We couldn’t load the vendor list.</h2>
+            <p>Please check your connection, then give it another try.</p>
+            <button class="es-btn es-btn-primary" type="button" id="vendors-retry">Try again</button>
+          </div>
+          <nav class="es-pagination vendors-pagination" id="vendors-pagination" aria-label="Vendor results pages"></nav>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="vendors-filter-scrim" id="vendors-filter-scrim" hidden></div>
+  <div data-es-footer></div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+  <title id="title">Warm EventSaathi venue illustration</title>
+  <rect width="800" height="500" fill="#F9F3EA"/>
+  <path d="M0 380c98-40 172-38 258 7 111 57 196 58 315-4 75-39 146-42 227-2v119H0z" fill="#E9DFD1"/>
+  <path d="M196 400V206c0-116 92-194 204-194s204 78 204 194v194" fill="#FFFAF3" stroke="#7A1E2C" stroke-width="10"/>
+  <path d="M252 399V211c0-86 66-145 148-145s148 59 148 145v188" fill="#F1E1CC"/>
+  <path d="M312 400V227c0-51 39-89 88-89s88 38 88 89v173" fill="#7A1E2C" opacity=".9"/>
+  <path d="M400 154v245" stroke="#E8A317" stroke-width="5"/>
+  <circle cx="400" cy="37" r="8" fill="#E8A317"/>
+  <path d="M163 397V260m-17 39 17-25 17 25m-15 98V289m-13 26 13-19 13 19m459 63V257m-18 38 18-24 18 24m-13 102V289m-14 26 14-19 14 19" fill="none" stroke="#567251" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+  <path d="M96 400h608" stroke="#B8A58F" stroke-width="6" stroke-linecap="round"/>
+  <path d="m344 430 56-22 56 22-56 22z" fill="#E8A317" opacity=".82"/>
+</svg>

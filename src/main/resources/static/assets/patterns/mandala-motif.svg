@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none" stroke="#7A1E2C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.08">
+  <!-- Center flower -->
+  <circle cx="100" cy="100" r="10" />
+  <circle cx="100" cy="100" r="22" stroke-dasharray="3 3" />
+  <!-- Inner 8 petals -->
+  <path d="M 100 78 C 93 85, 93 93, 100 100 C 107 93, 107 85, 100 78 Z" />
+  <path d="M 100 122 C 93 115, 93 107, 100 100 C 107 115, 107 107, 100 122 Z" />
+  <path d="M 78 100 C 85 93, 93 93, 100 100 C 93 107, 85 107, 78 100 Z" />
+  <path d="M 122 100 C 115 93, 107 93, 100 100 C 107 107, 115 107, 122 100 Z" />
+  <path d="M 84 84 C 88 92, 94 96, 100 100 C 96 94, 92 88, 84 84 Z" />
+  <path d="M 116 84 C 112 92, 106 96, 100 100 C 104 94, 108 88, 116 84 Z" />
+  <path d="M 84 116 C 88 108, 94 104, 100 100 C 96 106, 92 112, 84 116 Z" />
+  <path d="M 116 116 C 112 108, 106 104, 100 100 C 104 106, 108 112, 116 116 Z" />
+  <!-- Middle decorative ring -->
+  <circle cx="100" cy="100" r="42" />
+  <!-- 8 Floral archs -->
+  <path d="M 100 58 Q 120 70 100 100 Q 80 70 100 58 Z" />
+  <path d="M 100 142 Q 120 130 100 100 Q 80 130 100 142 Z" />
+  <path d="M 58 100 Q 70 120 100 100 Q 70 80 58 100 Z" />
+  <path d="M 142 100 Q 130 120 100 100 Q 130 80 142 100 Z" />
+  <!-- Outer ring & points -->
+  <circle cx="100" cy="100" r="70" stroke-dasharray="4 4" />
+  <circle cx="100" cy="100" r="85" />
+  <circle cx="100" cy="15" r="2" fill="#7A1E2C" />
+  <circle cx="100" cy="185" r="2" fill="#7A1E2C" />
+  <circle cx="15" cy="100" r="2" fill="#7A1E2C" />
+  <circle cx="185" cy="100" r="2" fill="#7A1E2C" />
+</svg>
